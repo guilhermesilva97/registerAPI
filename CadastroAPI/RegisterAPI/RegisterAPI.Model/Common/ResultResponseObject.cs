@@ -4,7 +4,7 @@
     {
         public bool Success => ErrorMessages == null || !ErrorMessages.Any();
         public T? Value { get; set; }
-        ICollection<KeyValuePair<string, string>> ErrorMessages { get; set; }
+        public ICollection<KeyValuePair<string, string>> ErrorMessages { get; set; }
         public void AddError(string errorResource)
         {
             if (ErrorMessages == null)

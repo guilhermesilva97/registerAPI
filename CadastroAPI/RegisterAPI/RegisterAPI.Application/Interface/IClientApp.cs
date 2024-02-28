@@ -6,5 +6,6 @@ namespace RegisterAPI.Application.Interface
     public interface IClientApp
     {
         Task<ResultResponseObject<Guid>> InsertClient(ClientRequest request);
+        Task<ResultResponseObject<bool>> SyncClients(Guid integrationGuid);
     }
 }

@@ -22,5 +22,10 @@ namespace RegisterAPI.Service
         {
             return await _clientRepository.GetByDocument(document);
         }
+
+        public async Task<IEnumerable<Client>> GetAll()
+        {
+            return await _clientRepository.GetAll();
+        }
     }
 }

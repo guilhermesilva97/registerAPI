@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\RegisterAPI.Entity\RegisterAPI.Entity.csproj" />
+    <ProjectReference Include="..\RegisterAPI.Model\RegisterAPI.Model.csproj" />
     <ProjectReference Include="..\RegisterAPI.Repository\RegisterAPI.Repository.csproj" />
   </ItemGroup>
 

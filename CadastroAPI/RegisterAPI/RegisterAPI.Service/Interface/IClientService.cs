@@ -6,5 +6,6 @@ namespace RegisterAPI.Service.Interface
     {
         Task<Guid> InsertClient(Client user);
         Task<Client> GetClientByDocument(string document);
+        Task<IEnumerable<Client>> GetAll();
     }
 }

@@ -8,5 +8,6 @@ namespace RegisterAPI.Repository.Context
         public RegisterAPIContext(DbContextOptions<RegisterAPIContext> options) : base(options) { }
 
         public DbSet<Client> Client { get; set; }
+        public DbSet<Integration> Integration { get; set; }
     }
 }

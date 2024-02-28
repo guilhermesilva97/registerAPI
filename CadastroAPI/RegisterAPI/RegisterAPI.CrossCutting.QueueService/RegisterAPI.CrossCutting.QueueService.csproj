@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RegisterAPI.CrossCutting.ExternalService\RegisterAPI.CrossCutting.ExternalService.csproj" />
     <ProjectReference Include="..\RegisterAPI.Entity\RegisterAPI.Entity.csproj" />
   </ItemGroup>
 

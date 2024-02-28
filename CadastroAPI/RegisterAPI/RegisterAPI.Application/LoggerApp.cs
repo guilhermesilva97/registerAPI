@@ -12,7 +12,6 @@ namespace RegisterAPI.Application
         {
             _logService = logService;
         }
-
         public async Task<ResultResponseObject<IEnumerable<Log>>> GetAllLogs()
         {
             ResultResponseObject<IEnumerable<Log>> result = new ResultResponseObject<IEnumerable<Log>>();

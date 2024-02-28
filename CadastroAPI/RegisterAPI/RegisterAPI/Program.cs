@@ -25,7 +25,6 @@ builder.Services.AddTransient<IAuthorizationHandler, ApiKeyRequirementHandler>()
 
 #region App
 builder.Services.AddTransient<IClientApp, ClientApp>();
-builder.Services.AddTransient<INotificationApp, NotificationApp>();
 builder.Services.AddTransient<ILoggerApp, LoggerApp>();
 #endregion
 
@@ -33,11 +32,14 @@ builder.Services.AddTransient<ILoggerApp, LoggerApp>();
 builder.Services.AddTransient<IClientService, ClientService>();
 builder.Services.AddTransient<ILogService, LogService>();
 builder.Services.AddTransient<ISendMessageService, SendMessageService>();
+builder.Services.AddTransient<IIntegrationService, IntegrationService>();
+builder.Services.AddTransient<IReceiveMessageService, ReceiveMessageService>();
 #endregion
 
 #region Repository
 builder.Services.AddTransient<IClientRepository, ClientRepository>();
 builder.Services.AddTransient<ILogRepository, LogRepository>();
+builder.Services.AddTransient<IIntegrationRepository, IntegrationRepository>();
 #endregion
 
 builder.Services.AddDbContext<RegisterAPIContext>(options =>
@@ -110,5 +112,10 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using var scope = app.Services.CreateScope();
+var receiveMessageService = scope.ServiceProvider.GetRequiredService<IReceiveMessageService>();
+Task.Run(() => receiveMessageService.ReceiveMessages());
+Task.Run(() => receiveMessageService.ReceiveClientSyncMessages());
 
 app.Run();

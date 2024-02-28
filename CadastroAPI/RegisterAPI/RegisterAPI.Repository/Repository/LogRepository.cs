@@ -17,7 +17,7 @@ namespace RegisterAPI.Repository.Repository
             return await _collection.Find(_ => true).ToListAsync();
         }
 
-        public async Task<int> InsertLog(Log log)
+        public async Task<Guid> InsertLog(Log log)
         {
             await _collection.InsertOneAsync(log);
             return log.Id;
